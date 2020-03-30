@@ -9,7 +9,7 @@ const getters = {
 const mutations = {
   SET_LOADING: (state, status) => {
     state.loading = status;
-  },
+  }
 };
 
 const actions = {};
@@ -20,4 +20,4 @@ export default {
   getters,
   mutations,
   actions
-}
+};
