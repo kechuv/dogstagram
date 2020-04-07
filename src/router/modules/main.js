@@ -1,22 +1,19 @@
-import Default from "@/layouts/default.vue";
+import Default from "@/layouts/default";
 
-// import Home from "@/views/Home.vue";
-// const About = () => import(/* webpackChunkName: "about" */ "@/views/About.vue");
-const AllPhotos = () =>
-  import(/* webpackChunkName: "about" */ "@/views/AllPhotos.vue");
+const Home = () => import(/* webpackChunkName: "home" */ "@/views/Home");
 
 const routes = [
   {
     path: "/",
-    name: "home",
     component: Default,
     children: [
       {
         path: "",
-        component: AllPhotos
-      }
-    ]
-  }
+        name: "home",
+        component: Home,
+      },
+    ],
+  },
 ];
 
 export default routes;
