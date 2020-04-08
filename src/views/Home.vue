@@ -49,4 +49,5 @@ export default {
 <style lang="sass" scoped>
 .home
   height: 100%
+  padding-bottom: 2rem
 </style>

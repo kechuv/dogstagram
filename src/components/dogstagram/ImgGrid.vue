@@ -1,17 +1,14 @@
 <template>
   <section
-    class="photo-grid"
-    @scroll="handleScroll"
-  >
+  class="photo-grid"
+  @scroll="handleScroll">
     <div
-      v-for="(image, index) in images"
-      :key="index"
-      class="img-card"
-    >
+    v-for="(image, index) in images"
+    :key="index"
+    class="img-card">
       <img
-        :src="image.url"
-        :alt="image.id"
-      />
+      :src="image.url"
+      :alt="image.id" />
     </div>
   </section>
 </template>
@@ -23,6 +20,11 @@ export default {
       type: Array,
       required: false,
       default: () => []
+    },
+    infiniteScroll: {
+      type: Boolean,
+      required: false,
+      default: true
     }
   },
   methods: {
@@ -41,7 +43,7 @@ export default {
   gap: 1rem
   height: 100%
   overflow-y: auto
-  padding: 2rem
+  padding: 2rem 2rem 2rem 0
 .img-card
   height: 33vh
 .img-card > img
