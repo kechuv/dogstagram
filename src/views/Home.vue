@@ -14,15 +14,6 @@ export default {
   components: {
     ImgGrid: () => import("@/components/dogstagram/ImgGrid")
   },
-  data: function() {
-    return {
-      qparams: {
-        limit: 9,
-        page: 0,
-        order: "desc"
-      }
-    };
-  },
   computed: {
     ...mapGetters({
       allPhotos: "Dogstagram/allPhotos",
@@ -30,8 +21,7 @@ export default {
     })
   },
   beforeMount: async function() {
-    if (!this.qparams.page === 0) return;
-    if (!this.allPhotos.length === 0) return;
+    if (this.allPhotos.length) return;
     await this.getPhotos();
   },
   methods: {
@@ -39,8 +29,7 @@ export default {
       fetchPhotos: "Dogstagram/fetchPhotos"
     }),
     getPhotos: async function() {
-      await this.fetchPhotos(this.qparams);
-      this.qparams.page++;
+      await this.fetchPhotos();
     }
   }
 };

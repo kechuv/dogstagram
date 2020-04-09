@@ -1,7 +1,7 @@
 <template>
   <section
   class="photo-grid"
-  @scroll="handleScroll">
+  @[activeEvent]="handleScroll">
     <div
     v-for="(image, index) in images"
     :key="index"
@@ -27,8 +27,14 @@ export default {
       default: true
     }
   },
+  computed: {
+    activeEvent: function() {
+      return !this.infiniteScroll ? null : 'scroll';
+    }
+  },
   methods: {
     handleScroll: function(event) {
+      if (this.infiniteScroll === false) return;
       const { scrollTop, clientHeight, scrollHeight } = event.target;
       if (scrollTop + clientHeight >= scrollHeight) this.$emit("scrollBottom");
     }
